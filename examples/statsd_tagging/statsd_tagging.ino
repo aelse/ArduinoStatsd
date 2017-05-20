@@ -46,6 +46,8 @@ void loop() {
   // In this example we include the information that this datapoint comes from a sensor in
   // the basement. If we had many sensors and this was a temperature reading we could look
   // at the min, max and averages of temperatures in a building as well as those in a particular area.
-  statsd.gauge("some.metric", val, "sensor=basement", 1.0);
+  // Note that when sending tags as a k/v pair, your tags should be formatted as k=v when sending
+  // to Telegraf, and k:v when sending to Datadog/gostatsd.
+  statsd.gauge("some.metric", val, "sensor,location=basement", 1.0);
   delay(1000);
 }
