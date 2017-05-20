@@ -44,7 +44,7 @@ private:
     String formatTags(String constant_tags, String tags);
     String formatSampleRate(float sample_rate);
     bool shouldSend(float sample_rate);
-    void send(String metric, int value, String tags, const char type, float sample_rate);
+    void send(String metric, int value, String tags, String type, float sample_rate);
     UDP &_udp;
     String _host;
     uint16_t _port;
