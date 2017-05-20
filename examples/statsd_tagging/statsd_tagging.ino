@@ -40,7 +40,7 @@ void loop() {
   // Emit a named metric with given value, some number of comma separated tags at a given sample rate.
   // metric: some.metric
   // value: val
-  // tags: sensor: basement (and host: speck, configured in the constant tags for the client)
+  // tags: sensor, location: basement (and host: speck, configured in the constant tags for the client)
   // sample rate: 0 -> 1.0 (100%)
   // Use tags when you have a metric that will benefit from being able to drill down by tags.
   // In this example we include the information that this datapoint comes from a sensor in
