@@ -37,6 +37,12 @@ void loop() {
   // tags: some_tag, whatever: 10
   // sample rate: 0 -> 1.0 (100%)
   statsd.gauge("some.metric", val);  // No sample rate indicates 100% sampling.
+  statsd.count("some.thing", 5);  // 5 occurrences of a thing happened.
   statsd.increment("some.other.metric", 0.1);  // 10% sampling.
+
+  unsigned long start = millis();
+  delay(random(10));  // Let's simulate some variable amount of work here.
+  statsd.timing("work", (int)(millis() - start);  // How long our work took.
+
   delay(1000);
 }
