@@ -36,6 +36,7 @@ void loop() {
   // value: val
   // tags: some_tag, whatever: 10
   // sample rate: 0 -> 1.0 (100%)
-  statsd.gauge("some.metric", val, "some_tag,whatever=10", 1.0);
+  statsd.gauge("some.metric", val);  // No sample rate indicates 100% sampling.
+  statsd.increment("some.other.metric", 0.1);  // 10% sampling.
   delay(1000);
 }
