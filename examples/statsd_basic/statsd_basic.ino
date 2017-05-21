@@ -31,7 +31,7 @@ void setup() {
 
 void loop() {
   int val = random(20);
-  // Emit a named metric with given value, some number of comma separated tags at a given sample rate.
+  // Emit a named metric with given value at a given sample rate.
   // metric: some.metric
   // value: val
   // tags: some_tag, whatever: 10
