@@ -74,6 +74,20 @@ void Statsd::send(String metric, int value, String tags, String type, float samp
     _udp.endPacket();
 }
 
+// Event - a Datadog extension. see http://docs.datadoghq.com/guides/dogstatsd/#events-1
+// Sending events to agents other than DogStatsd and gostatsd probably won't hurt,
+// but it's not likely to do anything useful.
+void Statsd::event(String title, String text, String tags) {
+    String msg = String("_e{") + title.length() + "," + text.length() + "}:" + title + "|" + text + formatTags(_constant_tags, tags);
+    const char *c_msg = msg.c_str();
+    _udp.write((uint8_t *)c_msg, strlen(c_msg));
+    _udp.endPacket();
+}
+
+void Statsd::event(String title, String text) {
+    event(title, text, "");
+}
+
 // Count
 void Statsd::count(String metric, int value, String tags, float sample_rate) {
     send(metric, value, tags, "c", sample_rate);

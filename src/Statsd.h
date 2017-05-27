@@ -15,6 +15,9 @@ public:
     Statsd(UDP& udp, String host, uint16_t port, String tags);
     void setTagStyle(int style);
     int begin();
+    // Event
+    void event(String title, String text, String tags);
+    void event(String title, String text);
     // Count
     void count(String metric, int value, String tags, float sample_rate);
     void count(String metric, int value);
