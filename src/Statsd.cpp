@@ -20,6 +20,10 @@ int Statsd::begin() {
     return _udp.beginPacket(_host.c_str(), _port);
 }
 
+void Statsd::end() {
+    _udp.endPacket();
+}
+
 inline String Statsd::joinTags(String t1, String t2) {
     if(t1.length() == 0)
         return t2;
