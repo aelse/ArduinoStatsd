@@ -15,6 +15,7 @@ public:
     Statsd(UDP& udp, String host, uint16_t port, String tags);
     void setTagStyle(int style);
     int begin();
+    void end();
     // Event
     void event(String title, String text, String tags);
     void event(String title, String text);
