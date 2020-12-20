@@ -57,7 +57,7 @@ inline bool Statsd::shouldSend(float sample_rate) {
     return random(100) < (sample_rate * 100);
 }
 
-void Statsd::send(String metric, int value, String tags, String type, float sample_rate) {
+void Statsd::send(String metric, float value, String tags, String type, float sample_rate) {
     if(!shouldSend(sample_rate))
         return;
     String msg;
@@ -89,54 +89,54 @@ void Statsd::event(String title, String text) {
 }
 
 // Count
-void Statsd::count(String metric, int value, String tags, float sample_rate) {
+void Statsd::count(String metric, float value, String tags, float sample_rate) {
     send(metric, value, tags, "c", sample_rate);
 }
 
-void Statsd::count(String metric, int value) {
+void Statsd::count(String metric, float value) {
     send(metric, value, "", "c", 1.0);
 }
 
-void Statsd::count(String metric, int value, float sample_rate) {
+void Statsd::count(String metric, float value, float sample_rate) {
     send(metric, value, "", "c", sample_rate);
 }
 
 // Gauge
-void Statsd::gauge(String metric, int value, String tags, float sample_rate) {
+void Statsd::gauge(String metric, float value, String tags, float sample_rate) {
     send(metric, value, tags, "g", sample_rate);
 }
 
-void Statsd::gauge(String metric, int value) {
+void Statsd::gauge(String metric, float value) {
     send(metric, value, "", "g", 1.0);
 }
 
-void Statsd::gauge(String metric, int value, float sample_rate) {
+void Statsd::gauge(String metric, float value, float sample_rate) {
     send(metric, value, "", "g", sample_rate);
 }
 
 // Set
-void Statsd::set(String metric, int value, String tags, float sample_rate) {
+void Statsd::set(String metric, float value, String tags, float sample_rate) {
     send(metric, value, tags, "s", sample_rate);
 }
 
-void Statsd::set(String metric, int value) {
+void Statsd::set(String metric, float value) {
     send(metric, value, "", "s", 1.0);
 }
 
-void Statsd::set(String metric, int value, float sample_rate) {
+void Statsd::set(String metric, float value, float sample_rate) {
     send(metric, value, "", "s", sample_rate);
 }
 
 // Timing
-void Statsd::timing(String metric, int value, String tags, float sample_rate) {
+void Statsd::timing(String metric, float value, String tags, float sample_rate) {
     send(metric, value, tags, "ms", sample_rate);
 }
 
-void Statsd::timing(String metric, int value) {
+void Statsd::timing(String metric, float value) {
     send(metric, value, "", "ms", 1.0);
 }
 
-void Statsd::timing(String metric, int value, float sample_rate) {
+void Statsd::timing(String metric, float value, float sample_rate) {
     send(metric, value, "", "ms", sample_rate);
 }
 

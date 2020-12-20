@@ -19,21 +19,21 @@ public:
     void event(String title, String text, String tags);
     void event(String title, String text);
     // Count
-    void count(String metric, int value, String tags, float sample_rate);
-    void count(String metric, int value);
-    void count(String metric, int value, float sample_rate);
+    void count(String metric, float value, String tags, float sample_rate);
+    void count(String metric, float value);
+    void count(String metric, float value, float sample_rate);
     // Gauge
-    void gauge(String metric, int value, String tags, float sample_rate);
-    void gauge(String metric, int value);
-    void gauge(String metric, int value, float sample_rate);
+    void gauge(String metric, float value, String tags, float sample_rate);
+    void gauge(String metric, float value);
+    void gauge(String metric, float value, float sample_rate);
     // Set
-    void set(String metric, int value, String tags, float sample_rate);
-    void set(String metric, int value);
-    void set(String metric, int value, float sample_rate);
+    void set(String metric, float value, String tags, float sample_rate);
+    void set(String metric, float value);
+    void set(String metric, float value, float sample_rate);
     // Timing
-    void timing(String metric, int value, String tags, float sample_rate);
-    void timing(String metric, int value);
-    void timing(String metric, int value, float sample_rate);
+    void timing(String metric, float value, String tags, float sample_rate);
+    void timing(String metric, float value);
+    void timing(String metric, float value, float sample_rate);
     // Increment
     void increment(String metric, String tags, float sample_rate);
     void increment(String metric);
@@ -47,7 +47,7 @@ private:
     String formatTags(String constant_tags, String tags);
     String formatSampleRate(float sample_rate);
     bool shouldSend(float sample_rate);
-    void send(String metric, int value, String tags, String type, float sample_rate);
+    void send(String metric, float value, String tags, String type, float sample_rate);
     UDP &_udp;
     String _host;
     uint16_t _port;
