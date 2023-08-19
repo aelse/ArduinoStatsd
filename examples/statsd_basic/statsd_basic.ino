@@ -42,7 +42,7 @@ void loop() {
 
   unsigned long start = millis();
   delay(random(10));  // Let's simulate some variable amount of work here.
-  statsd.timing("work", (int)(millis() - start);  // How long our work took.
+  statsd.timing("work", (int)(millis() - start));  // How long our work took.
 
   delay(1000);
 }
